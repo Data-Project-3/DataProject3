@@ -17,6 +17,49 @@ Objetivos:
 1. <strong>Datos demográficos (*train_datos_demograficos.csv*).</strong>Información sobre el cliente como edad, empleo, estudios, etc.,
 2. <strong>Performance Data (*train_performance.csv*).</strong> Este conjunto de datos incluye los préstamos de los clientes que hay que predecir. Básicamente, necesitamos predecir si este préstamo pasaría el modelo dado el histórico de préstamos anteriores y los datos demográficos de un cliente.
 3. <strong>Datos de préstamos anteriores (*train_previous_loan.csv*).</strong> Este dataset incluye todos los préstamos anteriores que el cliente tenía antes del préstamo anterior para el cual queremos predecir el rendimiento. Cada préstamo tendrá un systemloanid diferente, pero el mismo customerid para cada cliente.
+```mermaid
+classDiagram
+  direction RL
+  class datos_demograficos {
+    -id: customerid
+    -birthdate (Fecha de nacimiento del cliente)
+    -bank_account_type (Tipo de cuenta Bancaria)
+    -longitude_gps (Coordenadas de Longitud)
+    -latitude_gps (Coordenadas de latitud)
+    -bank_name_clients (Nombre del banco)
+    -bank_branch_clients (Localización del Banco)
+    -employment_status_clients (Tipo de empleo del cliente)
+    -level_of_education_clients (grado de formación del cliente)
+  }
+  direction RL
+  class performance {
+    -id: customerid
+    -Systemloanid (ID asociado para un préstamo en particular)
+    -bank_account_type (Tipo de cuenta Bancaria)
+    -longitude_gps (Coordenadas de Longitud)
+    -latitude_gps (Coordenadas de latitud)
+    -bank_name_clients (Nombre del banco)
+    -bank_branch_clients (Localización del Banco)
+    -employment_status_clients (Tipo de empleo del cliente)
+    -level_of_education_clients (grado de formación del cliente)
+  }
+    direction RL
+  class previous_loan {
+    -id: customerid
+    -Systemloanid (ID asociado para un préstamo en particular)
+    -Loannumber (El número del préstamo que hay que predecir)
+    -Approveddate (Fecha en la que se aprobó el préstamo)
+    -Creationdate (Fecha en que se creó la solicitud del préstamo)
+    -Loanamount (Cantidad pedida en el préstamo)
+    -Totaldue (cantidad total requerida para liquidar el préstamo)
+    -ClosedDate (Fecha en la cual se liquidó el préstamo)
+    -Referredby (Customerid del cliente que remitió a esta persona)
+    -Firstduedate (Fecha del primer pago)
+  }
+```
+
+
+
 
 ```mermaid
 flowchart LR
