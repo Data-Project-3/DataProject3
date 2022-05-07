@@ -102,3 +102,30 @@ T(modelo_base) -->V{compare_models.py}
 U(merged_test.csv) -->V{compare_models.py}
 V{compare_models.py} ==> W(((final_model)))
 ```
+#
+<p align =center><strong>Forma de trabajar, cada uno con su rama (pull request method)</p></strong>
+
+```mermaid
+gitGraph
+       commit
+       branch alvaro
+       commit
+       checkout main
+       merge alvaro
+       branch galo
+       commit
+       checkout main
+       merge galo
+       branch m.angeles
+       commit
+       checkout main
+       merge m.angeles
+       branch rafa
+       commit
+       checkout main
+       merge rafa
+       branch ismail
+       commit
+       checkout main
+       merge ismail
+```
