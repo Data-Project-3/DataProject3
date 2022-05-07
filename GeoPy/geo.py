@@ -5,17 +5,19 @@ Created on Thu May  5 00:17:49 2022
 @author: alvar
 """
 import pandas as pd
-from geopy.point import Point
-from geopy.geocoders import Nominatim
+import reverse_geocoder as rg
 
 df = pd.read_csv(r'C:\Users\alvar\Desktop\merged_missingvalues_solved.csv')
 
-geolocator=Nominatim(user_agent='Prueba')
+# cogemos las columnas de ubicacion
+df_loc = df[['customerid', 'longitude_gps', 'latitude_gps']]
 
-for i in range(len(df)):
-    lat = (df['longitude_gps'][i])
-    lang = (df['latitude_gps'][i])
-    while i<len(df):
-        i+=1
-    location = geolocator.reverse([lat,lang])
-    print(location.address)
+# sacamos las coordenadas de cada clienteid
+rg.search((df_loc.latitude_gps[1], df_loc.longitude_gps[1]))
+
+# creamos columnas con el pais y el estado de las coordenadas
+df_loc['country'] = df_loc.apply(lambda x: rg.search((x['latitude_gps'], x['longitude_gps']))[0]['cc'], axis=1)
+df_loc['state'] = df_loc.apply(lambda x: rg.search((x['latitude_gps'], x['longitude_gps']))[0]['admin1'], axis=1)
+
+# pasamos el dataframe al csv
+df_loc.to_csv(r'../datasets/own_data/datos_localizacion.csv', index = False)
