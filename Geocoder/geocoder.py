@@ -20,4 +20,4 @@ df_loc['country'] = df_loc.apply(lambda x: rg.search((x['latitude_gps'], x['long
 df_loc['state'] = df_loc.apply(lambda x: rg.search((x['latitude_gps'], x['longitude_gps']))[0]['admin1'], axis=1)
 
 # pasamos el dataframe al csv
-df_loc.to_csv(r'../datasets/own_data/datos_localizacion.csv', index = False)
+df_loc.to_csv(r'C:\Users\alvar\Desktop\geocoder.csv', index = False)
