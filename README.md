@@ -1,4 +1,13 @@
-# Predicción del Riesgo Crediticio
+# bbank
+<img src="https://github.com/Data-Project-3/DataProject3/blob/main/Logo/bbank.png"  width="30%" align='center'/>
+
+# ¿Quiénes somos?
+
+1. Banco que nace hace apenas unos años y que cuyo valor principal es la sostenibilidad.
+2. Desde bbank nos importa que con el dinero se consiga tener un impacto en el mundo, en busca del cambio social, ambiental y cultural para un futuro mejor.
+3. Como banco, una de nuestras grandes prioridades es conocer el riesgo crediticio, saber que capacidad y probabilidad tienen nuestros clientes de devolvernos la cantidad prestada (con sus respectivos intereses). 
+
+# Nuestra predicción del Riesgo Crediticio
 
 Al pedir un préstamo a una entidad financiera nos enfrentamos a dos problemas:
 1. <strong>Disposición a pagar.</strong>
@@ -12,7 +21,7 @@ Objetivos:
 1. <strong>Clustering </strong> para ver qué tipos de cliente tiene el banco.
 2. <strong>Clasificador</strong> que indique si el préstamo es bueno o no.
 #
-<p align =center><strong>DATASETS</p></strong>
+<p align =center><strong>Contamos con los siguientes datasets</p></strong>
 
 1. <strong>Datos demográficos (*train_datos_demograficos.csv*).</strong>Información sobre el cliente como edad, empleo, estudios, etc.,
 2. <strong>Performance Data (*train_performance.csv*).</strong> Este conjunto de datos incluye los préstamos de los clientes que hay que predecir. Básicamente, necesitamos predecir si este préstamo pasaría el modelo dado el histórico de préstamos anteriores y los datos demográficos de un cliente.
@@ -76,6 +85,59 @@ C[TEST] -.->H(demograficos.csv)
 C[TEST] -.->I(previous_loan.csv)
 end
 D(performance.csv) ---J[merged_files.py]
+E(demograficos.csv) ---J[merged_files.py]
+F(previous_loan.csv) ---J[merged_files.py]
+G(performance.csv) ---J[merged_files.py]
+H(demograficos.csv) ---J[merged_files.py]
+I(previous_loan.csv) ---J[merged_files.py]
+J[merged_files] ==oK[NOTEBOOKS]
+J[merged_files] ==oL(merged_train.csv)
+subgraph NOTEBOOK
+K{{NB}} -->M(clustering)
+K{{NB}} -->N(Feature Importance)
+K{{NB}} -->O(PCA)
+end
+M(clustering) -->P(modelo_cluster)
+N(Feature Importance) -->Q(modelo_feature_importance)
+O(PCA) -->R(modelo_PCA)
+L(merged_train.csv) -->S(modelo_gs)
+L(merged_train.csv) -->T(modelo_base)
+J[merged_files.py] ==oU(merged_test.csv)
+P(modelo_cluster) -->V{compare_models.py}
+Q(modelo_feature_importance) -->V{compare_models.py}
+R(modelo_PCA) -->V{compare_models.py}
+S(modelo_gs) -->V{compare_models.py}
+T(modelo_base) -->V{compare_models.py}
+U(merged_test.csv) -->V{compare_models.py}
+V{compare_models.py} ==> W(((final_model)))
+```
+#
+<p align =center><strong>Forma de trabajar, cada uno con su rama (pull request method)</p></strong>
+
+```mermaid
+gitGraph
+       commit
+       branch alvaro
+       commit
+       checkout main
+       merge alvaro
+       branch galo
+       commit
+       checkout main
+       merge galo
+       branch m.angeles
+       commit
+       checkout main
+       merge m.angeles
+       branch rafa
+       commit
+       checkout main
+       merge rafa
+       branch ismail
+       commit
+       checkout main
+       merge ismail
+```
 E(demograficos.csv) ---J[merged_files.py]
 F(previous_loan.csv) ---J[merged_files.py]
 G(performance.csv) ---J[merged_files.py]
