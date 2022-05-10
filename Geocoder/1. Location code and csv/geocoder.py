@@ -7,7 +7,7 @@ Created on Thu May  5 00:17:49 2022
 import pandas as pd
 import reverse_geocoder as rg
 
-df = pd.read_csv(r'C:\Users\alvar\Desktop\merged_missingvalues_solved.csv')
+df = pd.read_csv(r'C:\Users\alvar\Desktop\finalmerged.csv')
 
 # cogemos las columnas de ubicacion
 df_loc = df[['customerid', 'longitude_gps', 'latitude_gps']]
