@@ -16,7 +16,7 @@ Esperamos un poco y comprobamos la siguiente url en nuestro navegador: http://lo
 
 Nos pedirá una contraseña o token y tendremos que introducir: grupo4
 
-Posteriormente le damos a Log In y se mostrará la siguientey clicamos en la carpeta 'work'.
+Posteriormente le damos a *Log In* y se mostrará una única carpeta llamada 'work', clicamos en esta.
 
 Una vez realizados los anteriores pasos, nuestra pantalla debería mostrar lo siguiente:
 
@@ -104,23 +104,22 @@ C[TEST] -.->G(test_performance.csv)
 C[TEST] -.->H(test_datos_demograficos.csv)
 C[TEST] -.->I(test_previous_loan.csv)
 end
-D(train_performance.csv) ---J{merging.py}
-E(train_datos_demograficos.csv) ---J{merging.py}
-F(train_previous_loan.csv) ---J{merging.py}
-G(test_performance.csv) ---J{merging.py}
-H(test_datos_demograficos.csv) ---J{merging.py}
-I(test_previous_loan.csv) ---J{merging.py}
-J{merging.py} ==>K[nb]
+D(train_performance.csv) ---J{merging.ipynb}
+E(train_datos_demograficos.csv) ---J{merging.ipynb}
+F(train_previous_loan.csv) ---J{merging.ipynb}
+G(test_performance.csv) ---J{merging.ipynb}
+H(test_datos_demograficos.csv) ---J{merging.ipynb}
+I(test_previous_loan.csv) ---J{merging.ipynb}
 subgraph NOTEBOOK
-K((nb)) ==>L(clustering.ipynb)
-K((nb)) ==>M(modelobase.ipynb)
-M(modelobase.ipynb) ---P(pca.ipynb)
-P(pca.ipynb) ---MM(modelopostpca.ipynb)
-MM(modelopostpca.ipynb) ---FI(featureimportance.ipynb)
-FI(featureimportance.ipynb) ==>FM(((finalmodel.ipynb)))
+J{merging.ipynb} ==>L([clustering.ipynb])
+J{merging.ipynb} ==>M([modelobase.ipynb])
+M([modelobase.ipynb]) ---P([pca.ipynb])
+P([pca.ipynb]) ---MM([modelopostpca.ipynb])
+MM([modelopostpca.ipynb]) ---FI([featureimportance.ipynb])
+FI([featureimportance.ipynb]) ==>FM(((finalmodel.ipynb)))
 end
-OO(overtfitting) --> M(modelobase.ipynb)
-OO(overtfitting) ==> DR(dimensionality reduction)
+OO[overtfitting] --> M([modelobase.ipynb])
+OO[overtfitting] ==> DR([dimensionality reduction])
 ```
 #
 <p align =center><strong>Forma de trabajar, cada uno con su rama (pull request method)</p></strong>
