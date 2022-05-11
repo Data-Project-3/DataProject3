@@ -149,3 +149,10 @@ end
 OO[overtfitting] --> M([modelobase.ipynb])
 OO[overtfitting] ==> DR([dimensionality reduction])
 ```
+
+
+# Ingesta y procesado
+
+
+Antes de realizar cualquier decisión, preprocesamos nuestros datos que se encuentran en 1. Input raw data con los tres datasets mencionados. Para no tomar decisiones  a ciegas sobre transformaciones, se hace un exploratorio analítico de los datos que se encuentra en 4. EDA . 
+
