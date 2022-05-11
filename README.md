@@ -151,8 +151,27 @@ OO[overtfitting] ==> DR([dimensionality reduction])
 ```
 
 
-# Ingesta y procesado
+# Acciones realizadas
 
 
 Antes de realizar cualquier decisión, preprocesamos nuestros datos que se encuentran en 1. Input raw data con los tres datasets mencionados. Para no tomar decisiones  a ciegas sobre transformaciones, se hace un exploratorio analítico de los datos que se encuentra en 4. EDA . 
+
+En primer lugar, sacamos información del previous_loan.csv y juntamos los datasets mediante el customerid en el PreProcess.py . A este intento lo llamamos 'Primera Prueba'. Al tener ya nuestro dataset preparado, lo entrenamos y sacamosel modelo base dentro de la carpeta Modeling. Al tener overfitting, decidimos reducir dimensionalidad mediante PCA, sacar los modelos óptimos (CredirRskDespuesPCA) y al ver había cabida para mejorar, realizamos feature importance para poder hacer una vez más nuestros modelos. Todos ellos utilizando la técnica grid search para la optimización de hiperparámetros. Además de, realizar un clustering, un modelo especifico para xgboost y otro feature importance.
+
+Al no conseguir buenos resultados, decidimos realizar diferentes transformaciones en el preprocesamiento resultando en '6. Segunda Prueba' donde encontramos merging.csv donde está el dataset con el que trabajaríamos. Rápidamente, al hacer tres modelos de xgboost con su grid search y al no encontrar un buen accuracy rápidamente decidimos realizar unas últimas transformaciones.
+
+La Tercera Prueba, se encuentra en la carpeta numero 7 donde nos encontraremos con las decisiones que nos hemos quedado. Dentro de modeling, encontraremos de primeras el notebook Merging aqui encontraremos todas las transformaciones desde el tipo de interes hasta si se pagó la deuda en el plazo o no. Ya satisfechos con estas transformaciones, realizamos los mismos pasos que con la Primera Prueba: un modelo base (encontrarse overfitting), aplicar después un PCA, volver a calcular los modelos, realizar reducción de dimensionalidad con feature importance y finalmente quedándonos con el Final Model donde encontramos nuestro modelo óptimo y finalmente lo entrenamos con los 2 conjuntos: train y test conseguiendo mejor accuracy.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
