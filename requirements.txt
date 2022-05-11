@@ -1,2 +1,0 @@
-geocoder==1.38.1
-pandas==1.4.2
