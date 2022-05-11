@@ -1,3 +1,27 @@
+# Introducción
+### Requisito
+
+Para ver todo el contenido del repositorio es necesario contar con Docker Desktop y con Git instalado en la terminal desde el que se quiere realizar la prueba de esta demo. También será necesario clonar este repositorio y posteriormente, dentro de la carpeta clonada, creamos el contenedor de Docker.
+A continuación, los comandos a ejecutar desde el CMD:
+
+1. Clonar repositorio:
+
+<pre><code>git clone https://github.com/Data-Project-3/DataProject3.git</pre></code>
+
+2. Creamos el contenedor que contiene Jupyter:
+
+<pre><code>docker-compose up -d --build </pre></code>
+
+Esperamos un poco y comprobamos la siguiente url en nuestro navegador: http://localhost:8888/ , pues ahí está nuestro Jupyter.
+
+Nos pedirá una contraseña o token y tendremos que introducir: grupo4
+
+Posteriormente le damos a Log In y se mostrará la siguientey clicamos en la carpeta 'work'.
+
+Una vez realizados los anteriores pasos, nuestra pantalla debería mostrar lo siguiente:
+
+<img src="https://github.com/Data-Project-3/DataProject3/blob/main/Pics/localhost8888.png"  width="100%" align='center'/>
+
 # bbank
 <img src="https://github.com/Data-Project-3/DataProject3/blob/main/Logo/bbank.png"  width="30%" align='center'/>
 
@@ -85,59 +109,6 @@ C[TEST] -.->H(demograficos.csv)
 C[TEST] -.->I(previous_loan.csv)
 end
 D(performance.csv) ---J[merged_files.py]
-E(demograficos.csv) ---J[merged_files.py]
-F(previous_loan.csv) ---J[merged_files.py]
-G(performance.csv) ---J[merged_files.py]
-H(demograficos.csv) ---J[merged_files.py]
-I(previous_loan.csv) ---J[merged_files.py]
-J[merged_files] ==oK[NOTEBOOKS]
-J[merged_files] ==oL(merged_train.csv)
-subgraph NOTEBOOK
-K{{NB}} -->M(clustering)
-K{{NB}} -->N(Feature Importance)
-K{{NB}} -->O(PCA)
-end
-M(clustering) -->P(modelo_cluster)
-N(Feature Importance) -->Q(modelo_feature_importance)
-O(PCA) -->R(modelo_PCA)
-L(merged_train.csv) -->S(modelo_gs)
-L(merged_train.csv) -->T(modelo_base)
-J[merged_files.py] ==oU(merged_test.csv)
-P(modelo_cluster) -->V{compare_models.py}
-Q(modelo_feature_importance) -->V{compare_models.py}
-R(modelo_PCA) -->V{compare_models.py}
-S(modelo_gs) -->V{compare_models.py}
-T(modelo_base) -->V{compare_models.py}
-U(merged_test.csv) -->V{compare_models.py}
-V{compare_models.py} ==> W(((final_model)))
-```
-#
-<p align =center><strong>Forma de trabajar, cada uno con su rama (pull request method)</p></strong>
-
-```mermaid
-gitGraph
-       commit
-       branch alvaro
-       commit
-       checkout main
-       merge alvaro
-       branch galo
-       commit
-       checkout main
-       merge galo
-       branch m.angeles
-       commit
-       checkout main
-       merge m.angeles
-       branch rafa
-       commit
-       checkout main
-       merge rafa
-       branch ismail
-       commit
-       checkout main
-       merge ismail
-```
 E(demograficos.csv) ---J[merged_files.py]
 F(previous_loan.csv) ---J[merged_files.py]
 G(performance.csv) ---J[merged_files.py]
