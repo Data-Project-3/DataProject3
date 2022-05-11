@@ -23,7 +23,7 @@ Una vez realizados los anteriores pasos, nuestra pantalla debería mostrar lo si
 <img src="https://github.com/Data-Project-3/DataProject3/blob/main/Pics/localhost8888.png"  width="100%" align='center'/>
 
 # bbank
-<img src="https://github.com/Data-Project-3/DataProject3/blob/main/Logo/bbank.png"  width="30%" align='center'/>
+<img src="https://github.com/Data-Project-3/DataProject3/blob/main/Pics/bbank.png"  width="30%" align='center'/>
 
 # ¿Quiénes somos?
 
