@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  datascience-demo:
+    image: jupyter/datascience-notebook:r-4.0.3
+    environment:
+      - JUPYTER_TOKEN=grupo4
+    volumes:
+      - ./:/home/jovyan/work
+    ports:
+      - 8888:8888
+    container_name: dataproject3
