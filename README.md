@@ -89,6 +89,34 @@ classDiagram
     -Referredby (Customerid del cliente que remitió a esta persona)
     -Firstduedate (Fecha del primer pago)
   }
+  ```
+  
+  #
+<p align =center><strong>Así queda el dataset final tras transformarlo:</p></strong>
+  
+  ```mermaid
+  classDiagram
+    direction RL
+  class bestdata {
+    -id: customerid
+    -loannumber
+    -loanamount
+    -totaldue
+    -termdays
+    -good_bad_flag
+    -realage
+    -TipoInteresAhora
+    -bank_account_Other
+    -bank_account_Savings
+    -level_of_education_clients_Unknown
+    -bank_name_client_GTBank
+    -employment_status_client_Permanent
+    -employment_status_client_Unknown
+    -is_late_for_firstpay
+    -exceeds_loan_term_days
+    -good_bad_flag
+    -TipoInteres
+    }
 ```
 
 # Arquitectura de la solución
@@ -120,31 +148,4 @@ FI([featureimportance.ipynb]) ==>FM(((finalmodel.ipynb)))
 end
 OO[overtfitting] --> M([modelobase.ipynb])
 OO[overtfitting] ==> DR([dimensionality reduction])
-```
-#
-<p align =center><strong>Forma de trabajar, cada uno con su rama (pull request method)</p></strong>
-
-```mermaid
-gitGraph
-       commit
-       branch alvaro
-       commit
-       checkout main
-       merge alvaro
-       branch galo
-       commit
-       checkout main
-       merge galo
-       branch m.angeles
-       commit
-       checkout main
-       merge m.angeles
-       branch rafa
-       commit
-       checkout main
-       merge rafa
-       branch ismail
-       commit
-       checkout main
-       merge ismail
 ```
