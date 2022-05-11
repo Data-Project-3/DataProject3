@@ -91,7 +91,7 @@ classDiagram
   }
 ```
 
-
+# Arquitectura de la solución
 
 
 ```mermaid
