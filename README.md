@@ -126,16 +126,10 @@ subgraph INPUT
 B[TRAIN] -.->D(train_performance.csv)
 B[TRAIN] -.->E(train_datos_demograficos.csv)
 B[TRAIN] -.->F(train_previous_loan.csv)
-C[TEST] -.->G(test_performance.csv)
-C[TEST] -.->H(test_datos_demograficos.csv)
-C[TEST] -.->I(test_previous_loan.csv)
 end
 D(train_performance.csv) ---J{merging.ipynb}
 E(train_datos_demograficos.csv) ---J{merging.ipynb}
 F(train_previous_loan.csv) ---J{merging.ipynb}
-G(test_performance.csv) ---J{merging.ipynb}
-H(test_datos_demograficos.csv) ---J{merging.ipynb}
-I(test_previous_loan.csv) ---J{merging.ipynb}
 subgraph NOTEBOOK
 J{merging.ipynb} ==>L([clustering.ipynb])
 J{merging.ipynb} ==>M([modelobase.ipynb])
