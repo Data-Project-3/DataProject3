@@ -103,7 +103,6 @@ classDiagram
     -loanamount
     -totaldue
     -termdays
-    -good_bad_flag
     -realage
     -TipoInteresAhora
     -bank_account_Other
@@ -114,7 +113,6 @@ classDiagram
     -employment_status_client_Unknown
     -is_late_for_firstpay
     -exceeds_loan_term_days
-    -good_bad_flag
     -TipoInteres
     }
 ```
